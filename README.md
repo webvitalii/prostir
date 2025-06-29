@@ -1,1 +1,1 @@
-# prostir
+# sync-wp
