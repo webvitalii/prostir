@@ -1,11 +1,15 @@
+from .wp_content_puller import WPContentPuller
 from PySide6.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QCheckBox, QPushButton, QTextEdit
+from pathlib import Path
+from config import SITE_URL, OUTPUT_DIR
 
 class PullScreen(QWidget):
     def __init__(self):
         super().__init__()
+        self.puller = WPContentPuller()
         # Checkboxes
-        self.posts_check = QCheckBox("Posts")
-        self.pages_check = QCheckBox("Pages")
+        self.posts_check = QCheckBox("posts")
+        self.pages_check = QCheckBox("pages")
         # Pull button
         self.pull_button = QPushButton("Pull")
         # Text area for output
@@ -25,11 +29,18 @@ class PullScreen(QWidget):
     def on_pull_clicked(self):
         selected = []
         if self.posts_check.isChecked():
-            selected.append("Posts")
+            selected.append("posts")
         if self.pages_check.isChecked():
-            selected.append("Pages")
+            selected.append("pages")
         if not selected:
             self.text_area.append("No option selected.")
         else:
             self.text_area.append(f"Pulling: {', '.join(selected)}")
-            # TODO: implement pull logic using WP REST API
+            for content_type in selected:
+                try:
+                    count, folder = self.puller.pull_items(content_type)
+                    self.text_area.append(f"Pulled {count} {content_type}. Files saved to {folder}")
+                except Exception as e:
+                    self.text_area.append(f"Error pulling {content_type}: {e}")
+
+
