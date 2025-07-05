@@ -5,8 +5,8 @@
   "guid": {
     "rendered": "https://prostir.info/bienvenue/?page_id=2"
   },
-  "modified": "2025-07-01T04:34:33",
-  "modified_gmt": "2025-07-01T04:34:33",
+  "modified": "2025-07-05T02:14:22",
+  "modified_gmt": "2025-07-05T02:14:22",
   "slug": "sample-page",
   "status": "publish",
   "type": "page",
@@ -78,14 +78,14 @@
     ],
     "version-history": [
       {
-        "count": 2,
+        "count": 3,
         "href": "https://prostir.info/bienvenue/wp-json/wp/v2/pages/2/revisions"
       }
     ],
     "predecessor-version": [
       {
-        "id": 9,
-        "href": "https://prostir.info/bienvenue/wp-json/wp/v2/pages/2/revisions/9"
+        "id": 10,
+        "href": "https://prostir.info/bienvenue/wp-json/wp/v2/pages/2/revisions/10"
       }
     ],
     "wp:attachment": [

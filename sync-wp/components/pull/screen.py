@@ -45,6 +45,12 @@ class PullScreen(QWidget):
         # Load auth data from config file
         config_data = self.config_manager.get_config()
         if not config_data:
+            self.text_area.append("Error: No configuration found.")
+            QMessageBox.warning(
+                self,
+                "Configuration Missing",
+                "Please configure your WordPress authentication credentials in the Config screen."
+            )
             return
             
         username = config_data.get('username', '')
