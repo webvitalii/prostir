@@ -12,7 +12,7 @@ class WPContentPuller:
         else:
             self.output_dir = OUTPUT_DIR
 
-    def pull_items(self, content_type):
+    def pull_items(self, content_type, username=None, password=None, auth_method="application"):
         # content_type should already be plural (posts/pages)
         endpoint = f"{self.site_url}/wp-json/wp/v2/{content_type}"
         print(f"Accessing API endpoint: {endpoint}")
@@ -20,10 +20,16 @@ class WPContentPuller:
         page = 1
         items = []
         
+        # Set up authentication if provided
+        auth = None
+        if username and password:
+            auth = (username, password)
+            print(f"Using {auth_method} authentication with username: {username}")
+        
         try:
             # Get first page
             params["page"] = page
-            resp = requests.get(endpoint, params=params)
+            resp = requests.get(endpoint, params=params, auth=auth)
             print(f"Response status code: {resp.status_code}")
             
             if resp.status_code != 200:
@@ -41,7 +47,7 @@ class WPContentPuller:
                 # If there are more pages, fetch them
                 for page in range(2, total_pages + 1):
                     params["page"] = page
-                    resp = requests.get(endpoint, params=params)
+                    resp = requests.get(endpoint, params=params, auth=auth)
                     print(f"Fetching page {page}/{total_pages}, status: {resp.status_code}")
                     
                     if resp.status_code == 200:

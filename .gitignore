@@ -29,3 +29,6 @@ __pypackages__/
 # Logs and misc
 *.log
 .DS_Store
+
+# Configuration files with sensitive data
+sync-wp/config.json

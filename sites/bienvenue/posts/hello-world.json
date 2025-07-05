@@ -5,17 +5,17 @@
   "guid": {
     "rendered": "https://prostir.info/bienvenue/?p=1"
   },
-  "modified": "2025-06-29T04:13:44",
-  "modified_gmt": "2025-06-29T04:13:44",
+  "modified": "2025-07-01T04:34:32",
+  "modified_gmt": "2025-07-01T04:34:32",
   "slug": "hello-world",
   "status": "publish",
   "type": "post",
   "link": "https://prostir.info/bienvenue/2025/06/29/hello-world/",
   "title": {
-    "rendered": "Hello world!"
+    "rendered": "Hello world! UPDATED"
   },
   "content": {
-    "rendered": "<p>Welcome to <a href=\"https://prostir.info/\">Time Capsule</a>. This is your first post. Edit or delete it, then start writing!</p>\n",
+    "rendered": "<p>Welcome UPDATED to <a href=\"https://prostir.info/\">Time Capsule</a>. This is your first post. Edit or delete it, then start writing!</p>\n",
     "protected": false
   },
   "excerpt": {
@@ -51,7 +51,11 @@
         "href": "https://prostir.info/bienvenue/wp-json/wp/v2/posts/1",
         "targetHints": {
           "allow": [
-            "GET"
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
           ]
         }
       }
@@ -80,8 +84,14 @@
     ],
     "version-history": [
       {
-        "count": 0,
+        "count": 3,
         "href": "https://prostir.info/bienvenue/wp-json/wp/v2/posts/1/revisions"
+      }
+    ],
+    "predecessor-version": [
+      {
+        "id": 8,
+        "href": "https://prostir.info/bienvenue/wp-json/wp/v2/posts/1/revisions/8"
       }
     ],
     "wp:attachment": [
