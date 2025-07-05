@@ -1,15 +1,16 @@
 from .wp_content_pusher import WPContentPusher
 from PySide6.QtWidgets import (QWidget, QHBoxLayout, QVBoxLayout, QCheckBox, 
-                              QPushButton, QTextEdit, QLabel, QLineEdit, 
-                              QFormLayout, QGroupBox, QRadioButton, QMessageBox)
-from pathlib import Path
+                              QPushButton, QTextEdit, QLabel, QMessageBox, QGroupBox)
 from config import SITE_URL, OUTPUT_DIR
+from ..config.config_manager import ConfigManager
+
 
 class PushScreen(QWidget):
     def __init__(self):
         super().__init__()
         self.pusher = WPContentPusher()
-        
+        self.config_manager = ConfigManager()
+
         # Create UI components
         self.setup_ui()
         
@@ -19,39 +20,6 @@ class PushScreen(QWidget):
     def setup_ui(self):
         # Main layout
         main_layout = QVBoxLayout(self)
-        
-        # Auth group box
-        auth_group = QGroupBox("WordPress Authentication")
-        auth_layout = QFormLayout()
-        
-        self.username_input = QLineEdit()
-        self.password_input = QLineEdit()
-        self.password_input.setEchoMode(QLineEdit.Password)
-        
-        auth_layout.addRow("Username:", self.username_input)
-        auth_layout.addRow("Password:", self.password_input)
-        
-        # Auth method selection
-        auth_method_layout = QHBoxLayout()
-        self.basic_auth_radio = QRadioButton("Basic Auth")
-        self.app_password_radio = QRadioButton("Application Password")
-        self.app_password_radio.setChecked(True)  # Recommended option
-        
-        auth_method_layout.addWidget(self.basic_auth_radio)
-        auth_method_layout.addWidget(self.app_password_radio)
-        
-        auth_layout.addRow("Auth Method:", auth_method_layout)
-        
-        # Help text
-        help_text = (
-            "Note: For WordPress REST API, you typically need to use an Application Password.\n"
-            "You can create one in your WordPress admin under Users → Profile → Application Passwords."
-        )
-        help_label = QLabel(help_text)
-        help_label.setWordWrap(True)
-        auth_layout.addRow("", help_label)
-        
-        auth_group.setLayout(auth_layout)
         
         # Checkboxes for content types
         content_group = QGroupBox("Content to Push")
@@ -64,11 +32,9 @@ class PushScreen(QWidget):
         checkbox_layout.addWidget(self.pages_check)
         content_group.setLayout(checkbox_layout)
         
-        # Site info
+        # Output directory info
         info_layout = QVBoxLayout()
-        self.site_label = QLabel(f"Site URL: {SITE_URL}")
         self.output_label = QLabel(f"Content directory: {OUTPUT_DIR}")
-        info_layout.addWidget(self.site_label)
         info_layout.addWidget(self.output_label)
         
         # Push button
@@ -80,22 +46,35 @@ class PushScreen(QWidget):
         
         # Add all components to main layout
         main_layout.addLayout(info_layout)
-        main_layout.addWidget(auth_group)
         main_layout.addWidget(content_group)
         main_layout.addWidget(self.push_button)
         main_layout.addWidget(self.text_area)
-    
+
+
     def on_push_clicked(self):
-        # Validate credentials
-        username = self.username_input.text().strip()
-        password = self.password_input.text().strip()
+        # Load auth data from config file
+        config_data = self.config_manager.get_config()
+        if not config_data:
+            self.text_area.append("Error: No configuration found.")
+            QMessageBox.warning(
+                self,
+                "Configuration Missing",
+                "Please configure your WordPress authentication credentials in the Config screen."
+            )
+            return
+
+        username = config_data.get('username', '')
+        password = config_data.get('password', '')
+        auth_method = config_data.get('auth_method', 'application')
         
         if not username or not password:
             self.text_area.append("Error: WordPress username and password are required.")
+            QMessageBox.warning(
+                self,
+                "Authentication Missing",
+                "Please configure your WordPress authentication credentials in the Config screen."
+            )
             return
-            
-        # Get authentication method
-        auth_method = "application" if self.app_password_radio.isChecked() else "basic"
             
         selected = []
         if self.posts_check.isChecked():

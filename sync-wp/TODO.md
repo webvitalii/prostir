@@ -4,6 +4,7 @@
 * Sync categories
 * Sync menues
 * Sync media
+* Do not update file if no changes done (or if date is the same)
 
 # Future Features
 
