@@ -5,6 +5,7 @@ from components.pull.screen import PullScreen
 from components.push.screen import PushScreen
 from components.config.screen import ConfigScreen
 
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()

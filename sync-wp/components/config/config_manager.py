@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 
+
 class ConfigManager:
     def __init__(self):
         self.config_path = Path(__file__).resolve().parent.parent.parent / "config.json"

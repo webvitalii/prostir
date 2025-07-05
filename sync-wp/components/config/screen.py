@@ -1,5 +1,5 @@
-from PySide6.QtWidgets import (QWidget, QHBoxLayout, QVBoxLayout,
-                              QFormLayout, QGroupBox, QRadioButton, QLabel, 
+from PySide6.QtWidgets import (QWidget, QVBoxLayout,
+                              QFormLayout, QGroupBox, QLabel, 
                               QLineEdit, QPushButton, QMessageBox)
 from config import SITE_URL
 from .config_manager import ConfigManager
