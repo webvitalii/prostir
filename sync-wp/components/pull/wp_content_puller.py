@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 from config import SITE_URL, OUTPUT_DIR
 
+
 class WPContentPuller:
     def __init__(self, site_url=None, output_dir=None):
         # Use centralized config with fallback options

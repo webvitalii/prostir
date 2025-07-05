@@ -2,6 +2,7 @@ from .wp_content_puller import WPContentPuller
 from PySide6.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QCheckBox, QPushButton, QTextEdit, QMessageBox, QGroupBox
 from ..config.config_manager import ConfigManager
 
+
 class PullScreen(QWidget):
     def __init__(self):
         super().__init__()

@@ -4,6 +4,7 @@ from PySide6.QtWidgets import (QWidget, QHBoxLayout, QVBoxLayout, QCheckBox,
 from config import SITE_URL, OUTPUT_DIR
 from ..config.config_manager import ConfigManager
 
+
 class PushScreen(QWidget):
     def __init__(self):
         super().__init__()

@@ -4,6 +4,7 @@ from PySide6.QtWidgets import (QWidget, QVBoxLayout,
 from config import SITE_URL
 from .config_manager import ConfigManager
 
+
 class ConfigScreen(QWidget):
     def __init__(self):
         super().__init__()
