@@ -17,23 +17,17 @@ class ConfigScreen(QWidget):
         self.load_config()
     
     def setup_ui(self):
-        # Main layout
         main_layout = QVBoxLayout(self)
-        
-        # Auth group box
+
         auth_group = QGroupBox("WordPress Authentication")
         auth_layout = QFormLayout()
         
         self.username_input = QLineEdit()
         self.password_input = QLineEdit()
-
         
         auth_layout.addRow("Username:", self.username_input)
         auth_layout.addRow("Application Password:", self.password_input)
-        
 
-        
-        # Help text
         help_text = (
             "Note: For WordPress REST API, you typically need to use an Application Password.\n"
             "You can create one in your WordPress admin under Users → Profile → Application Passwords."
@@ -43,19 +37,16 @@ class ConfigScreen(QWidget):
         auth_layout.addRow("", help_label)
         
         auth_group.setLayout(auth_layout)
-        
-        # Site info
+
         site_info_group = QGroupBox("Site Information")
         info_layout = QVBoxLayout()
         self.site_label = QLabel(f"Site URL: {SITE_URL}")
         info_layout.addWidget(self.site_label)
         site_info_group.setLayout(info_layout)
-        
-        # Save button
+
         self.save_button = QPushButton("Save Configuration")
         self.save_button.clicked.connect(self.save_config)
-        
-        # Add components to main layout
+
         main_layout.addWidget(site_info_group)
         main_layout.addWidget(auth_group)
         main_layout.addWidget(self.save_button)
