@@ -23,10 +23,10 @@ class ConfigScreen(QWidget):
         auth_layout = QFormLayout()
         
         self.username_input = QLineEdit()
-        self.password_input = QLineEdit()
+        self.application_password_input = QLineEdit()
         
         auth_layout.addRow("Username:", self.username_input)
-        auth_layout.addRow("Application Password:", self.password_input)
+        auth_layout.addRow("Application Password:", self.application_password_input)
 
         help_text = (
             "Note: For WordPress REST API, you typically need to use an Application Password.\n"
@@ -54,13 +54,11 @@ class ConfigScreen(QWidget):
     def get_auth_data(self):
         """Get authentication data from the config screen"""
         username = self.username_input.text().strip()
-        password = self.password_input.text().strip()
-        auth_method = "application"
+        application_password = self.application_password_input.text().strip()
         
         return {
             "username": username,
-            "password": password,
-            "auth_method": auth_method
+            "application_password": application_password
         }
         
     def save_config(self):
@@ -90,8 +88,10 @@ class ConfigScreen(QWidget):
 
             if "username" in config_data:
                 self.username_input.setText(config_data["username"])
-            if "password" in config_data:
-                self.password_input.setText(config_data["password"])
+            
+            # Only use application_password
+            if "application_password" in config_data:
+                self.application_password_input.setText(config_data["application_password"])
 
         except Exception as e:
             print(f"Error loading configuration: {str(e)}")

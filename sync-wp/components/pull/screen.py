@@ -54,8 +54,7 @@ class PullScreen(QWidget):
             return
             
         username = config_data.get('username', '')
-        password = config_data.get('password', '')
-        auth_method = config_data.get('auth_method', 'application')
+        application_password = config_data.get('application_password', '')
         
         selected = []
         if self.posts_check.isChecked():
@@ -67,8 +66,8 @@ class PullScreen(QWidget):
             self.text_area.append("No option selected.")
             return
             
-        if not username or not password:
-            self.text_area.append("Error: WordPress username and password are required.")
+        if not username or not application_password:
+            self.text_area.append("Error: WordPress username and application password are required.")
             QMessageBox.warning(
                 self,
                 "Authentication Missing",
@@ -79,7 +78,7 @@ class PullScreen(QWidget):
         self.text_area.append(f"Pulling: {', '.join(selected)}")
         for content_type in selected:
             try:
-                count, folder = self.puller.pull_items(content_type, username, password, auth_method)
+                count, folder = self.puller.pull_items(content_type, username, application_password)
                 self.text_area.append(f"Pulled {count} {content_type}. Files saved to {folder}")
             except Exception as e:
                 self.text_area.append(f"Error pulling {content_type}: {e}")

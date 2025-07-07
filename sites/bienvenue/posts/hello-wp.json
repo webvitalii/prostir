@@ -1,25 +1,25 @@
 {
-  "id": 1,
-  "date": "2025-06-29T04:13:44",
-  "date_gmt": "2025-06-29T04:13:44",
+  "id": 14,
+  "date": "2025-07-07T23:31:10",
+  "date_gmt": "2025-07-07T23:31:10",
   "guid": {
-    "rendered": "https://prostir.info/bienvenue/?p=1"
+    "rendered": "https://prostir.info/bienvenue/?p=14"
   },
   "modified": "2025-07-07T23:31:53",
   "modified_gmt": "2025-07-07T23:31:53",
-  "slug": "hello-world",
+  "slug": "hello-wp",
   "status": "publish",
   "type": "post",
-  "link": "https://prostir.info/bienvenue/2025/06/29/hello-world/",
+  "link": "https://prostir.info/bienvenue/2025/07/07/hello-wp/",
   "title": {
-    "rendered": "Hello world! UPDATED2"
+    "rendered": "Hello WP"
   },
   "content": {
-    "rendered": "<p>Welcome UPDATED2 to <a href=\"https://prostir.info/\">Time Capsule</a>. This is your first post. Edit or delete it, then start writing!</p>\n",
+    "rendered": "<p>Hello WP post</p>\n",
     "protected": false
   },
   "excerpt": {
-    "rendered": "<p>Welcome to Time Capsule. This is your first post. Edit or delete it, then start writing!</p>\n",
+    "rendered": "<p>Hello WP post</p>\n",
     "protected": false
   },
   "author": 1,
@@ -37,7 +37,7 @@
   ],
   "tags": [],
   "class_list": [
-    "post-1",
+    "post-14",
     "post",
     "type-post",
     "status-publish",
@@ -48,7 +48,7 @@
   "_links": {
     "self": [
       {
-        "href": "https://prostir.info/bienvenue/wp-json/wp/v2/posts/1",
+        "href": "https://prostir.info/bienvenue/wp-json/wp/v2/posts/14",
         "targetHints": {
           "allow": [
             "GET",
@@ -79,36 +79,36 @@
     "replies": [
       {
         "embeddable": true,
-        "href": "https://prostir.info/bienvenue/wp-json/wp/v2/comments?post=1"
+        "href": "https://prostir.info/bienvenue/wp-json/wp/v2/comments?post=14"
       }
     ],
     "version-history": [
       {
-        "count": 4,
-        "href": "https://prostir.info/bienvenue/wp-json/wp/v2/posts/1/revisions"
+        "count": 2,
+        "href": "https://prostir.info/bienvenue/wp-json/wp/v2/posts/14/revisions"
       }
     ],
     "predecessor-version": [
       {
-        "id": 11,
-        "href": "https://prostir.info/bienvenue/wp-json/wp/v2/posts/1/revisions/11"
+        "id": 18,
+        "href": "https://prostir.info/bienvenue/wp-json/wp/v2/posts/14/revisions/18"
       }
     ],
     "wp:attachment": [
       {
-        "href": "https://prostir.info/bienvenue/wp-json/wp/v2/media?parent=1"
+        "href": "https://prostir.info/bienvenue/wp-json/wp/v2/media?parent=14"
       }
     ],
     "wp:term": [
       {
         "taxonomy": "category",
         "embeddable": true,
-        "href": "https://prostir.info/bienvenue/wp-json/wp/v2/categories?post=1"
+        "href": "https://prostir.info/bienvenue/wp-json/wp/v2/categories?post=14"
       },
       {
         "taxonomy": "post_tag",
         "embeddable": true,
-        "href": "https://prostir.info/bienvenue/wp-json/wp/v2/tags?post=1"
+        "href": "https://prostir.info/bienvenue/wp-json/wp/v2/tags?post=14"
       }
     ],
     "curies": [

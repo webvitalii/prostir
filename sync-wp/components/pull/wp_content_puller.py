@@ -13,7 +13,7 @@ class WPContentPuller:
         else:
             self.output_dir = OUTPUT_DIR
 
-    def pull_items(self, content_type, username=None, password=None, auth_method="application"):
+    def pull_items(self, content_type, username=None, application_password=None):
         # content_type should already be plural (posts/pages)
         endpoint = f"{self.site_url}/wp-json/wp/v2/{content_type}"
         print(f"Accessing API endpoint: {endpoint}")
@@ -23,9 +23,9 @@ class WPContentPuller:
         
         # Set up authentication if provided
         auth = None
-        if username and password:
-            auth = (username, password)
-            print(f"Using {auth_method} authentication with username: {username}")
+        if username and application_password:
+            auth = (username, application_password)
+            print(f"Using application authentication with username: {username}")
         
         try:
             # Get first page

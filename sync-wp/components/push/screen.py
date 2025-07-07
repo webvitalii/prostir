@@ -64,11 +64,10 @@ class PushScreen(QWidget):
             return
 
         username = config_data.get('username', '')
-        password = config_data.get('password', '')
-        auth_method = config_data.get('auth_method', 'application')
+        application_password = config_data.get('application_password', '')
         
-        if not username or not password:
-            self.text_area.append("Error: WordPress username and password are required.")
+        if not username or not application_password:
+            self.text_area.append("Error: WordPress username and application password are required.")
             QMessageBox.warning(
                 self,
                 "Authentication Missing",
@@ -92,7 +91,7 @@ class PushScreen(QWidget):
         for content_type in selected:
             try:
                 self.text_area.append(f"Processing {content_type}...")
-                count, folder = self.pusher.push_items(content_type, username, password, auth_method)
+                count, folder = self.pusher.push_items(content_type, username, application_password)
                 self.text_area.append(f"Successfully pushed {count} {content_type} from {folder}")
             except Exception as e:
                 self.text_area.append(f"Error pushing {content_type}: {str(e)}")
