@@ -91,7 +91,7 @@ class PushScreen(QWidget):
         for content_type in selected:
             try:
                 self.text_area.append(f"Processing {content_type}...")
-                count, folder = self.pusher.push_items(content_type, username, application_password)
+                count, folder = self.pusher.push_items(content_type, username, application_password, only_updated=True)
                 self.text_area.append(f"Successfully pushed {count} {content_type} from {folder}")
             except Exception as e:
                 self.text_area.append(f"Error pushing {content_type}: {str(e)}")
