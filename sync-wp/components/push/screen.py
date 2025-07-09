@@ -1,7 +1,7 @@
 from .wp_content_pusher import WPContentPusher
 from PySide6.QtWidgets import (QWidget, QHBoxLayout, QVBoxLayout, QCheckBox, 
                               QPushButton, QTextEdit, QLabel, QMessageBox, QGroupBox)
-from config import SITE_URL, OUTPUT_DIR
+from config import SITE_URL, OUTPUT_DIR, CONTENT_TYPES
 from ..config.config_manager import ConfigManager
 
 
@@ -25,11 +25,15 @@ class PushScreen(QWidget):
         content_group = QGroupBox("Content to Push")
         checkbox_layout = QHBoxLayout()
         
-        self.posts_check = QCheckBox("posts")
-        self.pages_check = QCheckBox("pages")
-        
-        checkbox_layout.addWidget(self.posts_check)
-        checkbox_layout.addWidget(self.pages_check)
+        # Create checkboxes dynamically based on config
+        self.content_type_checkboxes = {}
+        for content_type in CONTENT_TYPES:
+            # Capitalize first letter for display
+            display_name = content_type.capitalize()
+            checkbox = QCheckBox(display_name)
+            self.content_type_checkboxes[content_type] = checkbox
+            checkbox_layout.addWidget(checkbox)
+            
         content_group.setLayout(checkbox_layout)
         
         # Output directory info
@@ -76,10 +80,9 @@ class PushScreen(QWidget):
             return
             
         selected = []
-        if self.posts_check.isChecked():
-            selected.append("posts")
-        if self.pages_check.isChecked():
-            selected.append("pages")
+        for content_id, checkbox in self.content_type_checkboxes.items():
+            if checkbox.isChecked():
+                selected.append(content_id)
             
         if not selected:
             self.text_area.append("Error: No content type selected.")

@@ -1,6 +1,7 @@
 from .wp_content_puller import WPContentPuller
 from PySide6.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QCheckBox, QPushButton, QTextEdit, QMessageBox, QGroupBox
 from ..config.config_manager import ConfigManager
+from config import CONTENT_TYPES
 
 
 class PullScreen(QWidget):
@@ -16,9 +17,8 @@ class PullScreen(QWidget):
         self.pull_button.clicked.connect(self.on_pull_clicked)
         
     def setup_ui(self):
-        # Checkboxes
-        self.posts_check = QCheckBox("posts")
-        self.pages_check = QCheckBox("pages")
+        # Content type checkboxes
+        self.content_type_checkboxes = {}
         
         # Pull button
         self.pull_button = QPushButton("Pull")
@@ -29,8 +29,14 @@ class PullScreen(QWidget):
         
         # Layouts
         checkbox_layout = QHBoxLayout()
-        checkbox_layout.addWidget(self.posts_check)
-        checkbox_layout.addWidget(self.pages_check)
+        
+        # Create checkboxes dynamically based on config
+        for content_type in CONTENT_TYPES:
+            # Capitalize first letter for display
+            display_name = content_type.capitalize()
+            checkbox = QCheckBox(display_name)
+            self.content_type_checkboxes[content_type] = checkbox
+            checkbox_layout.addWidget(checkbox)
 
         content_group = QGroupBox("Content to Pull")
         content_group.setLayout(checkbox_layout)
@@ -57,10 +63,9 @@ class PullScreen(QWidget):
         application_password = config_data.get('application_password', '')
         
         selected = []
-        if self.posts_check.isChecked():
-            selected.append("posts")
-        if self.pages_check.isChecked():
-            selected.append("pages")
+        for content_id, checkbox in self.content_type_checkboxes.items():
+            if checkbox.isChecked():
+                selected.append(content_id)
             
         if not selected:
             self.text_area.append("No option selected.")

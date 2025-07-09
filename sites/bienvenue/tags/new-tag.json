@@ -1,0 +1,48 @@
+{
+  "id": 2,
+  "count": 0,
+  "description": "new tag description",
+  "link": "https://prostir.info/bienvenue/tag/new-tag/",
+  "name": "new tag",
+  "slug": "new-tag",
+  "taxonomy": "post_tag",
+  "meta": [],
+  "_links": {
+    "self": [
+      {
+        "href": "https://prostir.info/bienvenue/wp-json/wp/v2/tags/2",
+        "targetHints": {
+          "allow": [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
+          ]
+        }
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://prostir.info/bienvenue/wp-json/wp/v2/tags"
+      }
+    ],
+    "about": [
+      {
+        "href": "https://prostir.info/bienvenue/wp-json/wp/v2/taxonomies/post_tag"
+      }
+    ],
+    "wp:post_type": [
+      {
+        "href": "https://prostir.info/bienvenue/wp-json/wp/v2/posts?tags=2"
+      }
+    ],
+    "curies": [
+      {
+        "name": "wp",
+        "href": "https://api.w.org/{rel}",
+        "templated": true
+      }
+    ]
+  }
+}

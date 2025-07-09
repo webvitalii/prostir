@@ -1,0 +1,124 @@
+{
+  "id": 20,
+  "date": "2025-07-09T01:48:09",
+  "date_gmt": "2025-07-09T01:48:09",
+  "guid": {
+    "rendered": "http://prostir.info/bienvenue/wp-content/uploads/sites/4/2025/07/bienvenue.png"
+  },
+  "modified": "2025-07-09T01:48:09",
+  "modified_gmt": "2025-07-09T01:48:09",
+  "slug": "bienvenue",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://prostir.info/bienvenue/bienvenue/",
+  "title": {
+    "rendered": "bienvenue"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "class_list": [
+    "post-20",
+    "attachment",
+    "type-attachment",
+    "status-inherit",
+    "hentry"
+  ],
+  "description": {
+    "rendered": "<p class=\"attachment\"><a href='https://prostir.info/bienvenue/wp-content/uploads/sites/4/2025/07/bienvenue.png'><img loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"300\" src=\"https://prostir.info/bienvenue/wp-content/uploads/sites/4/2025/07/bienvenue-300x300.png\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://prostir.info/bienvenue/wp-content/uploads/sites/4/2025/07/bienvenue-300x300.png 300w, https://prostir.info/bienvenue/wp-content/uploads/sites/4/2025/07/bienvenue-150x150.png 150w, https://prostir.info/bienvenue/wp-content/uploads/sites/4/2025/07/bienvenue.png 600w\" sizes=\"auto, (max-width: 300px) 100vw, 300px\" /></a></p>\n"
+  },
+  "caption": {
+    "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/png",
+  "media_details": {
+    "width": 600,
+    "height": 600,
+    "file": "2025/07/bienvenue.png",
+    "filesize": 38858,
+    "sizes": {
+      "medium": {
+        "file": "bienvenue-300x300.png",
+        "width": 300,
+        "height": 300,
+        "filesize": 5601,
+        "mime_type": "image/png",
+        "source_url": "https://prostir.info/bienvenue/wp-content/uploads/sites/4/2025/07/bienvenue-300x300.png"
+      },
+      "thumbnail": {
+        "file": "bienvenue-150x150.png",
+        "width": 150,
+        "height": 150,
+        "filesize": 2551,
+        "mime_type": "image/png",
+        "source_url": "https://prostir.info/bienvenue/wp-content/uploads/sites/4/2025/07/bienvenue-150x150.png"
+      },
+      "full": {
+        "file": "bienvenue.png",
+        "width": 600,
+        "height": 600,
+        "mime_type": "image/png",
+        "source_url": "https://prostir.info/bienvenue/wp-content/uploads/sites/4/2025/07/bienvenue.png"
+      }
+    },
+    "image_meta": {
+      "aperture": "0",
+      "credit": "",
+      "camera": "",
+      "caption": "",
+      "created_timestamp": "0",
+      "copyright": "",
+      "focal_length": "0",
+      "iso": "0",
+      "shutter_speed": "0",
+      "title": "",
+      "orientation": "0",
+      "keywords": []
+    }
+  },
+  "post": null,
+  "source_url": "https://prostir.info/bienvenue/wp-content/uploads/sites/4/2025/07/bienvenue.png",
+  "_links": {
+    "self": [
+      {
+        "href": "https://prostir.info/bienvenue/wp-json/wp/v2/media/20",
+        "targetHints": {
+          "allow": [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
+          ]
+        }
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://prostir.info/bienvenue/wp-json/wp/v2/media"
+      }
+    ],
+    "about": [
+      {
+        "href": "https://prostir.info/bienvenue/wp-json/wp/v2/types/attachment"
+      }
+    ],
+    "author": [
+      {
+        "embeddable": true,
+        "href": "https://prostir.info/bienvenue/wp-json/wp/v2/users/1"
+      }
+    ],
+    "replies": [
+      {
+        "embeddable": true,
+        "href": "https://prostir.info/bienvenue/wp-json/wp/v2/comments?post=20"
+      }
+    ]
+  }
+}

@@ -5,6 +5,25 @@
 * Sync menues
 * Sync media
 * Do not update file if no changes done (or if date is the same)
+* Pull media files with media item
+
+# Add new content types: https://prostir.info/bienvenue/wp-json/
+* users - WordPress users
+* taxonomies - Custom taxonomies
+* post_types - Custom post types
+* post_statuses - Draft, published, private, etc.
+* revisions - Post and page revisions
+* settings - WordPress site settings
+* themes - Installed themes
+* plugins - Installed plugins
+* blocks - Gutenberg blocks
+* menus - Navigation menus
+* menu-items - Individual menu items
+* products - WooCommerce products
+* orders - WooCommerce orders
+* customers - WooCommerce customers
+* content_type - Custom content types {site_url}/wp-json/wp/v2/{content_type} (comma separated text field)
+
 
 # Future Features
 

@@ -26,6 +26,24 @@ python main.py
 3. Choose your local files directory
 4. Sync content to WordPress
 
+### URLs
+
+* https://prostir.info/bienvenue/wp-json/wp/v2/pages/2/revisions
+* https://prostir.info/bienvenue/wp-json/wp/v2/pages/2
+* https://prostir.info/bienvenue/wp-json/wp/v2/pages
+* https://prostir.info/bienvenue/wp-json/wp/v2/
+* https://prostir.info/bienvenue/wp-json/wp/
+* https://prostir.info/bienvenue/wp-json/
+
+### Updating Content
+
+When updating existing posts or pages:
+1. Modify the content in the local JSON file
+2. Update the `modified` and `modified_gmt` dates in the JSON file to the current time
+3. Push the content to WordPress
+
+This is necessary because the push operation uses the modification date to determine which content has been updated locally.
+
 ## License
 
 MIT
